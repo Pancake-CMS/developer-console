@@ -1,0 +1,63 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/app-route/app-location.html">
+<link rel="import" href="./bower_components/app-route/app-route.html">
+<link rel="import" href="./bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="./bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="./bower_components/authentication-page/authentication-page.html">
+<link rel="import" href="./bower_components/template-creator/template-creator.html">
+<link rel="import" href="./bower_components/component-page/component-page.html">
+
+<dom-module id="developer-console">
+    <template>
+        <style></style>
+
+        <firebase-app
+            auth-domain="__YOUR_AUTH_DOMAIN__"
+            database-url="__YOUR_DATABASE_URL__"
+            api-key="__YOUR_API_KEY__">
+        </firebase-app>
+
+        <!-- app-location binds to the app's URL -->
+        <app-location route="{{route}}" use-hash-as-path></app-location>
+
+        <!-- this app-route manages the top-level routes -->
+        <app-route
+            route="{{route}}"
+            pattern="/login"
+            active="{{authenticationActive}}"></app-route>
+
+        <app-route
+            route="{{route}}"
+            pattern="/templates"
+            active="{{templateActive}}"></app-route>
+
+        <app-route
+            route="{{route}}"
+            pattern="/components"
+            active="{{componentActive}}"></app-route>
+
+        <main>
+            <authentication-page active$="{{authenticationActive}}" route="{{route}}"></authentication-page>
+            <template-creator active$="{{templateActive}}"></template-creator>
+            <component-page active$="{{componentActive}}"></component-page>
+        </main>
+    </template>
+    <script>
+        Polymer({
+            is: 'developer-console',
+
+            properties: {
+                authenticationActive: {
+                    type: Boolean,
+                    notify: true
+                }
+            },
+
+            attached: function() {
+                if(!this.route.path) {
+                    this.set('route.path', '/login')
+                }
+            }
+        });
+    </script>
+</dom-module>

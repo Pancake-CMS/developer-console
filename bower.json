@@ -1,0 +1,25 @@
+{
+  "name": "developer-console",
+  "homepage": "https://github.com/Pancake-CMS/developer-console",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "developer-console.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "app-route": "PolymerElements/app-route#^0.9.3",
+    "polymerfire": "firebase/polymerfire#^0.9.4",
+    "iron-selector": "PolymerElements/iron-selector#^1.5.2",
+    "authentication-page": "pancake-cms-authentication-page#*",
+    "template-creator": "pancake-cms-template-creator#*",
+    "component-page": "pancake-cms-component-page#*"
+  }
+}
