@@ -23,4 +23,5 @@ Now your firebase setup is complete
 - Make sure **node** is installed.
 - Install **bower**
 - run `bower install` from the root directory of this project.
+- If during the installation of bower packages, bower asks what version of firbase to use, select the one that says `0.9.4`. The other versions fail to get data from firebase. `¯\_(ツ)_/¯`
 - Open **index.html** in a browser.

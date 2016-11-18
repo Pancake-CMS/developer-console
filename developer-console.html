@@ -6,6 +6,7 @@
 <link rel="import" href="./bower_components/authentication-page/authentication-page.html">
 <link rel="import" href="./bower_components/template-creator/template-creator.html">
 <link rel="import" href="./bower_components/component-page/component-page.html">
+<link rel="import" href="./bower_components/page-links/page-links.html">
 
 <dom-module id="developer-console">
     <template>
@@ -41,6 +42,10 @@
             <template-creator active$="{{templateActive}}"></template-creator>
             <component-page active$="{{componentActive}}"></component-page>
         </main>
+
+        <template is="dom-if" if="[[!authenticationActive]]">
+            <page-links></page-links>
+        </template>
     </template>
     <script>
         Polymer({
