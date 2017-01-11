@@ -7,6 +7,9 @@
 <link rel="import" href="./bower_components/template-creator/template-creator.html">
 <link rel="import" href="./bower_components/component-page/component-page.html">
 <link rel="import" href="./bower_components/page-links/page-links.html">
+<link rel="import" href="./bower_components/locales-page/locales-page.html">
+<link rel="import" href="./bower_components/page-manager/page-manager.html">
+<link rel="import" href="./bower_components/template-manager/template-manager.html">
 
 <dom-module id="developer-console">
     <template>
@@ -29,18 +32,37 @@
 
         <app-route
             route="{{route}}"
-            pattern="/templates"
+            pattern="/templates/list"
             active="{{templateActive}}"></app-route>
+
+        <app-route
+            route="{{route}}"
+            pattern="/templates/edit"
+            active="{{templateCreatorActive}}"
+            tail="{{subroute}}"></app-route>
 
         <app-route
             route="{{route}}"
             pattern="/components"
             active="{{componentActive}}"></app-route>
 
+        <app-route
+            route="{{route}}"
+            pattern="/locales"
+            active="{{localesActive}}"></app-route>
+
+        <app-route
+            route="{{route}}"
+            pattern="/pages/list"
+            active="{{pageManagerActive}}"></app-route>
+
         <main>
             <authentication-page active$="{{authenticationActive}}" route="{{route}}"></authentication-page>
-            <template-creator active$="{{templateActive}}"></template-creator>
-            <component-page active$="{{componentActive}}"></component-page>
+            <template-manager active$="{{templateActive}}" route="{{route}}"></template-manager>
+            <template-creator active$="{{templateCreatorActive}}" route="{{route}}" subroute$="{{subroute.path}}"></template-creator>
+            <component-page active$="{{componentActive}}" route="{{route}}"></component-page>
+            <locales-page active$="{{localesActive}}" route="{{route}}"></locales-page>
+            <page-manager active$="{{pageManagerActive}}" route="{{route}}"></page-manager>
         </main>
 
         <template is="dom-if" if="[[!authenticationActive]]">
