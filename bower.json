@@ -24,6 +24,7 @@
     "component-page": "pancake-cms-component-page#*",
     "locales-page": "pancake-cms-locales-page#*",
     "page-manager": "pancake-cms-page-manager#*",
-    "template-manager": "pancake-cms-template-manager#*"
+    "template-manager": "pancake-cms-template-manager#*",
+    "page-editor": "pancake-cms-page-editor#*"
   }
 }

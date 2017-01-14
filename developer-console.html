@@ -10,10 +10,15 @@
 <link rel="import" href="./bower_components/locales-page/locales-page.html">
 <link rel="import" href="./bower_components/page-manager/page-manager.html">
 <link rel="import" href="./bower_components/template-manager/template-manager.html">
+<link rel="import" href="./bower_components/page-editor/page-editor.html">
 
 <dom-module id="developer-console">
     <template>
-        <style></style>
+        <style>
+            :host {
+                font-family: 'Roboto Condensed', sans-serif;
+            }
+        </style>
 
         <firebase-app
             auth-domain="__YOUR_AUTH_DOMAIN__"
@@ -56,13 +61,36 @@
             pattern="/pages/list"
             active="{{pageManagerActive}}"></app-route>
 
+        <app-route
+            route="{{route}}"
+            pattern="/pages/:locale/edit/:name"
+            data="{{routeData}}"
+            active="{{pageEditorActive}}"></app-route>
+
         <main>
-            <authentication-page active$="{{authenticationActive}}" route="{{route}}"></authentication-page>
-            <template-manager active$="{{templateActive}}" route="{{route}}"></template-manager>
-            <template-creator active$="{{templateCreatorActive}}" route="{{route}}" subroute$="{{subroute.path}}"></template-creator>
-            <component-page active$="{{componentActive}}" route="{{route}}"></component-page>
-            <locales-page active$="{{localesActive}}" route="{{route}}"></locales-page>
-            <page-manager active$="{{pageManagerActive}}" route="{{route}}"></page-manager>
+            <authentication-page
+                active$="{{authenticationActive}}"
+                route="{{route}}"></authentication-page>
+            <template-manager
+                active$="{{templateActive}}"
+                route="{{route}}"></template-manager>
+            <template-creator
+                active$="{{templateCreatorActive}}"
+                route="{{route}}"
+                subroute$="{{subroute.path}}"></template-creator>
+            <component-page
+                active$="{{componentActive}}"
+                route="{{route}}"></component-page>
+            <locales-page
+                active$="{{localesActive}}"
+                route="{{route}}"></locales-page>
+            <page-manager
+                active$="{{pageManagerActive}}"
+                route="{{route}}"></page-manager>
+            <page-editor
+                active$="{{pageEditorActive}}"
+                route="{{route}}"
+                routedata$="{{routeData}}"></page-editor>
         </main>
 
         <template is="dom-if" if="[[!authenticationActive]]">
