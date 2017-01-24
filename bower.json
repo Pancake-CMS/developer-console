@@ -25,6 +25,7 @@
     "locales-page": "pancake-cms-locales-page#*",
     "page-manager": "pancake-cms-page-manager#*",
     "template-manager": "pancake-cms-template-manager#*",
-    "page-editor": "pancake-cms-page-editor#*"
+    "page-editor": "pancake-cms-page-editor#*",
+    "approvals-page": "pancake-cms-approvals-page#*"
   }
 }

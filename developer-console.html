@@ -11,6 +11,7 @@
 <link rel="import" href="./bower_components/page-manager/page-manager.html">
 <link rel="import" href="./bower_components/template-manager/template-manager.html">
 <link rel="import" href="./bower_components/page-editor/page-editor.html">
+<link rel="import" href="./bower_components/approvals-page/approvals-page.html">
 
 <dom-module id="developer-console">
     <template>
@@ -67,6 +68,12 @@
             data="{{routeData}}"
             active="{{pageEditorActive}}"></app-route>
 
+        <app-route
+            route="{{route}}"
+            pattern="/approvals"
+            tail="{{subroute}}"
+            active="{{approvalsPageActive}}"></app-route>
+
         <main>
             <authentication-page
                 active$="{{authenticationActive}}"
@@ -91,6 +98,10 @@
                 active$="{{pageEditorActive}}"
                 route="{{route}}"
                 routedata$="{{routeData}}"></page-editor>
+            <approvals-page
+                active$="{{approvalsPageActive}}"
+                tail="{{subroute}}"
+                route="{{route}}"></approvals-page>
         </main>
 
         <template is="dom-if" if="[[!authenticationActive]]">
